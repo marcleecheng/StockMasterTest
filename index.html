@@ -36,8 +36,14 @@
                 },
             });
             
-            // Automatically open the chatbot
-            chatClient.open();
+            // Delay to ensure the SDK chat icon is rendered
+            setTimeout(() => {
+                // Attempt to find and click the SDK's default chat icon
+                const chatIcon = document.querySelector('.coze-chat-icon'); // Adjust selector as needed
+                if (chatIcon) {
+                    chatIcon.click();
+                }
+            }, 1000); // Adjust delay as needed
         };
     </script>
 </body>
