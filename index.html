@@ -19,28 +19,34 @@
             text-align: center;
             margin: 20px 0;
         }
+        /* Optional: Ensure the chat container has some size */
+        #chat {
+            width: 100%;
+            height: 600px;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to the Chatbot!</h1>
-
+    <div id="chat"></div>
+    
     <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.6/libs/cn/index.js"></script>
     <script>
         window.onload = function() {
             const chatClient = new CozeWebSDK.WebChatClient({
                 config: {
                     bot_id: '7422102794037575691',
-                    auto_open: true, // Try using auto-open configuration if available
                 },
                 componentProps: {
                     title: 'Coze',
                 },
+                el: document.getElementById('chat') // Attach the chat to the #chat div
             });
-
-            // If there's a method to open the chat directly, use it after initialization
-            if (chatClient.open) {
+            
+            // Automatically open the chat widget after it has been initialized
+            chatClient.init().then(() => {
                 chatClient.open();
-            }
+            });
         };
     </script>
 </body>
