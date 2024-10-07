@@ -5,32 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
     <style>
-        /* Centering and adding some margin to the chat icon */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
         #chat {
-            margin-top: 20px; /* Adjusts the spacing between the h1 and chat icon */
+            width: 300px; /* Initial width of the chat */
+            height: 100px; /* Initial height of the chat */
+            position: relative;
+            transition: all 0.3s ease; /* Animation for expanding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Fullscreen chat style */
+        #chat.fullscreen {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Make sure it stays on top */
+            background-color: white; /* Optional: Add a background color */
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Chatbot!</h1>
-    <!-- Chat icon will appear directly under this h1 -->
+    <h1>点击图标开始测试你的本命投资大师!</h1>
     <div id="chat"></div>
     
-    <!-- Include the Coze SDK library -->
     <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.6/libs/cn/index.js"></script>
     <script>
-        // Initialize the chatbot client
-        const chatClient = new CozeWebSDK.WebChatClient({
-            config: {
-                bot_id: '7422102794037575691', // Your bot ID
-            },
-            componentProps: {
-                title: 'Coze', // Set the title for the chat component
-            },
-        });
-
-        // Render the chat component in the specified HTML element
-        chatClient.render(document.getElementById('chat'));
+        window.onload = function() {
+            const chatClient = new CozeWebSDK.WebChatClient({
+                config: {
+                    bot_id: '7422102794037575691',
+                },
+                componentProps: {
+                    title: 'Coze',
+                },
+                el: document.getElementById('chat') // Attach the chat to the #chat div
+            });
+            
+            // Add a click event listener to the chat container
+            document.getElementById('chat').addEventListener('click', function() {
+                // Toggle fullscreen class to make the chat cover the whole page
+                this.classList.toggle('fullscreen');
+            });
+        };
     </script>
 </body>
 </html>
