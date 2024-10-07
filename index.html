@@ -11,36 +11,60 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0; /* Remove default margin */
-            background-color: #f0f0f0; /* Light background for contrast */
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #chat-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Adjust height as needed */
+            width: 80vw; /* Adjust width as needed */
         }
         #chat {
             width: 80%; /* Width of the chatbot container */
             max-width: 600px; /* Maximum width */
             height: 600px; /* Height of the chatbot container */
-            border: 1px solid #ccc; /* Border for visibility */
-            background: white; /* Background color */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-            border-radius: 10px; /* Rounded corners */
-            overflow: hidden; /* Hide overflow if necessary */
-            display: flex; /* Flexbox for internal layout */
-            flex-direction: column; /* Vertical stacking */
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center content horizontally */
+            border: 1px solid #ccc;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         h1 {
-            text-align: center; /* Center title */
-            margin: 20px 0; /* Spacing around title */
+            text-align: center;
+            margin: 20px 0;
+        }
+        .chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px; /* Adjust size for better visibility */
+            height: 60px; /* Adjust size for better visibility */
+            border-radius: 50%;
+            background-color: #4a90e2; /* Background color for visibility */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <h1>Welcome to the Chatbot!</h1>
-    <div id="chat"></div>
-    
+    <div id="chat-container">
+        <div id="chat"></div>
+    </div>
+    <div class="chat-icon" onclick="openChat()">💬</div> <!-- Chat icon -->
+
     <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.6/libs/cn/index.js"></script>
     <script>
-        window.onload = function() {
+        function openChat() {
             new CozeWebSDK.WebChatClient({
                 config: {
                     bot_id: '7422102794037575691',
@@ -49,7 +73,7 @@
                     title: 'Coze',
                 },
             });
-        };
+        }
     </script>
 </body>
 </html>
