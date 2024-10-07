@@ -4,20 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Light background for contrast */
+        }
+        #chat {
+            width: 80%; /* Width of the chatbot container */
+            max-width: 600px; /* Maximum width */
+            height: 600px; /* Height of the chatbot container */
+            border: 1px solid #ccc; /* Border for visibility */
+            background: white; /* Background color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Hide overflow if necessary */
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to the Chatbot!</h1>
     <div id="chat"></div>
-          <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.6/libs/cn/index.js"></script>
-      <script>
-          new CozeWebSDK.WebChatClient({
-            config: {
-              bot_id: '7422102794037575691',
-            },
-            componentProps: {
-              title: 'Coze',
-            },
-          });
-      </script>
+    
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.6/libs/cn/index.js"></script>
+    <script>
+        window.onload = function() {
+            new CozeWebSDK.WebChatClient({
+                config: {
+                    bot_id: '7422102794037575691',
+                },
+                componentProps: {
+                    title: 'Coze',
+                },
+            });
+        };
+    </script>
 </body>
 </html>
