@@ -15,21 +15,6 @@
             background-color: #f0f0f0;
             position: relative;
         }
-        #chat {
-            width: 80%; /* Width of the chatbot container */
-            max-width: 600px;
-            height: 600px;
-            border: 1px solid #ccc;
-            background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Center on the screen */
-            z-index: 1000; /* Bring to front */
-        }
         h1 {
             text-align: center;
             margin: 20px 0;
@@ -37,8 +22,7 @@
     </style>
 </head>
 <body>
-    <h1>点击对话图标开始测试你的本命投资大师</h1>
-    <div id="chat"></div>
+    <h1>Welcome to the Chatbot!</h1>
 
     <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.6/libs/cn/index.js"></script>
     <script>
@@ -49,7 +33,6 @@
                 },
                 componentProps: {
                     title: 'Coze',
-                    container: '#chat', // Render the chatbot inside the #chat div
                 },
             });
         };
