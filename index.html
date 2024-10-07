@@ -30,20 +30,17 @@
             const chatClient = new CozeWebSDK.WebChatClient({
                 config: {
                     bot_id: '7422102794037575691',
+                    auto_open: true, // Try using auto-open configuration if available
                 },
                 componentProps: {
                     title: 'Coze',
                 },
             });
-            
-            // Delay to ensure the SDK chat icon is rendered
-            setTimeout(() => {
-                // Attempt to find and click the SDK's default chat icon
-                const chatIcon = document.querySelector('.coze-chat-icon'); // Adjust selector as needed
-                if (chatIcon) {
-                    chatIcon.click();
-                }
-            }, 1000); // Adjust delay as needed
+
+            // If there's a method to open the chat directly, use it after initialization
+            if (chatClient.open) {
+                chatClient.open();
+            }
         };
     </script>
 </body>
