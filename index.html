@@ -11,6 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0; /* Remove default margin */
             background-color: #f0f0f0; /* Light background for contrast */
         }
         #chat {
@@ -22,6 +23,14 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
             border-radius: 10px; /* Rounded corners */
             overflow: hidden; /* Hide overflow if necessary */
+            display: flex; /* Flexbox for internal layout */
+            flex-direction: column; /* Vertical stacking */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+        }
+        h1 {
+            text-align: center; /* Center title */
+            margin: 20px 0; /* Spacing around title */
         }
     </style>
 </head>
