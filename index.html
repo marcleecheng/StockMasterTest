@@ -1,53 +1,24 @@
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            position: relative;
-        }
-        h1 {
-            text-align: center;
-            margin: 20px 0;
-        }
-        /* Optional: Ensure the chat container has some size */
         /* Centering and adding some margin to the chat icon */
         #chat {
-            width: 100%;
-            height: auto; /* Adjust height as needed */
-            display: flex;
-            justify-content: center;
-            align-items: center;
             margin-top: 20px; /* Adjusts the spacing between the h1 and chat icon */
         }
     </style>
 </head>
 <body>
-    <h1>点击图标开始测试你的本命投资大师!</h1>
     <h1>Welcome to the Chatbot!</h1>
     <!-- Chat icon will appear directly under this h1 -->
     <div id="chat"></div>
-
+    
     <!-- Include the Coze SDK library -->
     <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.6/libs/cn/index.js"></script>
     <script>
-        window.onload = function() {
-            new CozeWebSDK.WebChatClient({
-                config: {
-                    bot_id: '7422102794037575691',
-                },
-                componentProps: {
-                    title: 'Coze',
-                },
-                el: document.getElementById('chat') // Attach the chat to the #chat div
-            });
-        };
         // Initialize the chatbot client
         const chatClient = new CozeWebSDK.WebChatClient({
             config: {
@@ -57,6 +28,7 @@
                 title: 'Coze', // Set the title for the chat component
             },
         });
+
         // Render the chat component in the specified HTML element
         chatClient.render(document.getElementById('chat'));
     </script>
